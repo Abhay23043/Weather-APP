@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="header">
+        <div class="logo"><img src="weather-app-img/images/logo.png" alt="logo"/></div>
+        <div class="siteName">Weather App</div>
+    </section>
+    <section class="main">
+      <div class="card">
+        <div class="search">
+          <input type="text" placeholder="Enter City here" spellcheck="false" />
+          <button>
+            <img src="weather-app-img/images/search.png" alt="search icon" />
+          </button>
+        </div>
+        <div class="weather">
+          <img
+            class="weather-icon"
+            src="weather-app-img/images/rain.png"
+            alt="weathericon"
+          />
+          <h1 class="temp">22°C</h1>
+          <h2 class="city">bangalore</h2>
+          <div class="details">
+            <div class="col">
+              <img
+                src="weather-app-img/images/humidity.png"
+                alt="humidity icon"
+              />
+              <div>
+                <p class="humidity">50%</p>
+                <p>humidity</p>
+              </div>
+            </div>
+            <div class="col">
+              <img src="weather-app-img/images/wind.png" alt="humidity icon" />
+              <div>
+                <p class="wind">30 km/hr</p>
+                <p>wind speed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        const apiKey = "22cbcc3af64c71254e50f436cc195de1";
+        const apiUrl =
+          "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+
+        async function checkWeather(city) {
+          const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+          var data = await response.json();
+
+          document.querySelector(".city").innerHTML = data.name;
+          document.querySelector(".temp").innerHTML =
+            Math.round(data.main.temp) + "°C";
+          document.querySelector(".humidity").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind").innerHTML =
+            data.wind.speed + " km/hr";
+          if (data.weather[0].main == "Clouds") {
+            document.querySelector(".weather-icon").src =
+              "weather-app-img/images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            document.querySelector(".weather-icon").src =
+              "weather-app-img/images/clear.png";
+          } else if (data.weather[0].main == "Rain") {
+            document.querySelector(".weather-icon").src =
+              "weather-app-img/images/rain.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            document.querySelector(".weather-icon").src =
+              "weather-app-img/images/drizzle.png";
+          } else if (data.weather[0].main == "Mist") {
+            document.querySelector(".weather-icon").src =
+              "weather-app-img/images/mist.png";
+          }
+
+          document.querySelector(".weather").style.display = "block";
+        }
+
+        document.querySelectorAll(".logo, .siteName").forEach((element) => {
+          element.addEventListener("click", () => {
+            location.reload();
+          });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            document.querySelector(".search button").click();
+          }
+        });
+
+        searchBtn.addEventListener("click", () => {
+          checkWeather(searchBox.value);
+        });
+        checkWeather();
+      </script>
+    </section>
+<footer>
+        <section class="footer">
+        <p><a href="https://www.instagram.com/abhayjais151" target="_blank">Abhay Jaiswal</a></p>
+        <p>all rights reserved &copy; 2026</p>
+    </section>
+</footer>
+
+  </body>
+
+</html>

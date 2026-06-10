@@ -1,18 +1,28 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background: #222;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* HEADER */
 .header{
-   display: inline-flex;
-   align-items: center;
-   padding: 20px 40px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    text-align: center;
 }
+
 .header .logo img{
-    width: 80px;
+    width: 70px;
     margin-right: 10px;
     cursor: pointer;
 }
@@ -23,106 +33,176 @@
     color: #fff;
     cursor: pointer;
 }
-.header .logo img:hover, .header .siteName:hover{
+
+.header .siteName:hover{
     color: #00feba;
 }
 
-body{
-    background: #222;
-}
-
+/* CARD */
 .card{
-    width: 90%;
+    width: 100%;
     max-width: 470px;
-    margin: -10px auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 25px;
     text-align: center;
-    background: linear-gradient(140deg, #240ebd, #fff);
+    background: linear-gradient(140deg, #240ebd, #00feba);
     color: #fff;
-    border-radius: 40px;
+    border-radius: 25px;
 }
 
+/* SEARCH BAR */
 .search{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
     width: 100%;
-
 }
- .search input{
-    border: 0;
-    outline: 0;
+
+.search input{
+    flex: 1;
+    border: none;
+    outline: none;
     background: #ebfffc;
     color: #555;
-    padding: 10px 25px;
-    height: 60px;
+    padding: 15px 20px;
     border-radius: 30px;
-    flex: 1;
-    margin-right: 15px;
-    font-size: 18px;
- }
+    font-size: 16px;
+}
 
- .search button{
-    border: 0;
-    outline: 0;
+.search button{
+    border: none;
+    outline: none;
     background: #ebfffc;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     cursor: pointer;
+    flex-shrink: 0;
+}
 
- }
+.search button img{
+    width: 22px;
+}
 
- .search button img {
-    width: 25px;
-    height: 30px;
+/* WEATHER */
+.weather{
+    display: none;
+}
 
- }
+.weather img{
+    width: 45%;
+    max-width: 180px;
+    margin-top: 25px;
+}
 
+.weather h1{
+    font-size: 64px;
+    font-weight: 500;
+}
 
-
- .weather img{
-    width: 50%;
-    margin-top: 30px;
- }
- .weather h1{
-    font-size: 65px;
-    font-weight: 500px;
-
- }.weather h2{
-    font-size: 40px;
-    font-weight: 400px;
+.weather h2{
+    font-size: 36px;
+    font-weight: 400;
     margin-top: -10px;
- }
+}
 
- .details{
+/* DETAILS */
+.details{
     display: flex;
-    text-align: center;
-    justify-content: space-around;
-    margin-top: 30px;
-    padding: 0px 20px;
-    
- }
+    justify-content: space-between;
+    margin-top: 35px;
+    gap: 15px;
+}
 
 .col{
     display: flex;
     align-items: center;
     text-align: left;
+}
 
- }
- .col img{
+.col img{
     width: 40px;
     margin-right: 10px;
-    margin-top: -5px;
- }
- .humidity, .wind
- {
-    font-size: 28px;
-    margin-top: -6px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
- }
- .weather{
-      display: none;
- }
+}
 
+.humidity,
+.wind{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+@media (max-width: 768px){
+
+    .weather h1{
+        font-size: 55px;
+    }
+
+    .weather h2{
+        font-size: 32px;
+    }
+
+    .humidity,
+    .wind{
+        font-size: 20px;
+    }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 480px){
+
+    .header .logo img{
+        width: 55px;
+    }
+
+    .header .siteName{
+        font-size: 20px;
+    }
+
+    .card{
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .search input{
+        height: 50px;
+        font-size: 15px;
+        padding: 12px 15px;
+    }
+
+    .search button{
+        width: 50px;
+        height: 50px;
+    }
+
+    .weather img{
+        width: 50%;
+    }
+
+    .weather h1{
+        font-size: 42px;
+    }
+
+    .weather h2{
+        font-size: 28px;
+    }
+
+    .details{
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .humidity,
+    .wind{
+        font-size: 20px;
+    }
+
+    .col img{
+        width: 35px;
+    }
+}

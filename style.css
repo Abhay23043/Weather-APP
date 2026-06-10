@@ -125,24 +125,4 @@ body{
  .weather{
       display: none;
  }
- footer{
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   width: 100%;
- }
- .footer{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 20px 40px;
-   color: #fff;
-   background: linear-gradient(175deg, #704606, #5d45d3);
-   
- }
-   .footer a{
-      color: #fff;
-      margin-left: 15px;
-      font-size: 20px;
-      text-decoration: none;
-   }
+

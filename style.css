@@ -83,6 +83,23 @@ body{
 .search button img{
     width: 22px;
 }
+.search{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.search input{
+    flex: 1;
+    min-width: 0; /* Important */
+}
+
+.search button{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; /* Button ko shrink hone se rokega */
+}
 
 /* WEATHER */
 .weather{
